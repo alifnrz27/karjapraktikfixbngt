@@ -19,7 +19,7 @@ class JobTrainingController extends Controller
     public function index()
     {
         // jika yang masuk selain student
-        if(auth()->user()->role_id != 3){
+        if(auth()->user()->role_id != 3 || auth()->user()->active_id == 0){
             return abort(403);
         }
 
@@ -31,10 +31,10 @@ class JobTrainingController extends Controller
             $data['submissionStatus'] = $data['submissionStatus']->submission_status_id;
 
             $data['descriptionSubmissionStatus'] = SubmissionStatus::where('id', $data['submissionStatus'])->first();
+        }
 
-            if($data['submissionStatus'] >= 14){
-                abort(403);
-            }
+        if($data['submissionStatus'] == 30 && auth()->user()->active_id == 1){
+            $data['submissionStatus'] = Null;
         }
 
         return view('jobTraining.index', $data);

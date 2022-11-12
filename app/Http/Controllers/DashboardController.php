@@ -18,8 +18,24 @@ class DashboardController extends Controller
 {
     public function index () {
         $academicYear = AcademicYear::where(['is_active' => 1])->first();
+        $data['academicYear'] = $academicYear->year;
 
         if(auth()->user()->role_id == 1){
+
+            $data['secondCard'] = JobTraining::where([
+                'academic_year_id' => $academicYear->id,
+            ])->count();
+
+            $data['thirdCard'] = JobTraining::where([
+                ['academic_year_id', '=', $academicYear->id],
+                ['submission_status_id', '>=' , 30]
+            ])->count();
+
+            $data['fourthCard'] = JobTraining::where([
+                ['academic_year_id', '=', $academicYear->id],
+                ['submission_status_id', '<=' , 13]
+            ])->count();
+
             $data['submissions'] = JobTraining::where([
                                         'submission_status_id' => 9,
                                         'academic_year_id' => $academicYear->id,
@@ -70,6 +86,22 @@ class DashboardController extends Controller
         }
 
         elseif(auth()->user()->role_id == 2){
+            
+            $data['secondCard'] = JobTraining::where([
+                'academic_year_id' => $academicYear->id,
+                'lecturer_id' => auth()->user()->id
+            ])->count();
+
+            $data['thirdCard'] = JobTraining::where([
+                'lecturer_id' => auth()->user()->id,
+                'submission_status_id' => 23,
+            ])->count();
+
+            $data['fourthCard'] = Mentoring::where([
+                'lecturer_id' => auth()->user()->id,
+                'mentoring_status_id' => 3,
+            ])->count();
+
             $data['mentorings'] = Mentoring::where([
                 'lecturer_id' => auth()->user()->id,
                 'mentoring_status_id' => 1,
@@ -99,16 +131,38 @@ class DashboardController extends Controller
                 'lecturer_id' => auth()->user()->id,
                 'submission_status_id' => 23,
             ])->with(['user'])->get();
+
+            $data['evaluates'] = JobTraining::where([
+                ['lecturer_id', '=', auth()->user()->id],
+                ['submission_status_id', '>=', 24],
+                ['evaluated_id', '=', 0],
+            ])->with(['user'])->get();
         }
 
         elseif(auth()->user()->role_id == 3){
-            $data['submission'] = JobTraining::where(['user_id' => auth()->user()->id])->latest()->first();
-
+            $data['submission'] = JobTraining::where(['user_id' => auth()->user()->id])->with(['lecturer'])->latest()->first();
+            
             if($data['submission']){
                 $data['submissionStatus'] = $data['submission']->submission_status_id;
+                $data['fourthCard'] = $data['submission']->submissionStatus->name;
+                if($data['submission']->lecturer_id){
+                    $data['secondCard'] = $data['submission']->lecturer->name;
+                }else{
+                    $data['secondCard'] = '-';
+                }
+    
+                if($data['submission']->date_presentation){
+                    $data['thirdCard'] = $data['submission']->date_presentation;
+                }else{
+                    $data['thirdCard'] = '-';
+                }
             }else{
                 $data['submissionStatus'] = Null;
+                $data['secondCard'] = '-';
+                $data['thirdCard'] = '-';
+                $data['fourthCard'] = '-';
             }
+
 
             $data['logbooks'] = Logbook::where(['user_id' => auth()->user()->id])->latest()->get();
             $data['mentoring'] = Mentoring::where(['student_id' => auth()->user()->id])->latest()->get();

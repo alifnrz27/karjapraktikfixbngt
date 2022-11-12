@@ -1,6 +1,6 @@
 <x-jet-action-section>
     <x-slot name="title">
-        {{ __('Two Factor Authentication') }}
+        <div class="text-dark dark:text-white">{{ __('Two Factor Authentication') }}</div>
     </x-slot>
 
     <x-slot name="description">
@@ -79,7 +79,7 @@
         <div class="mt-5">
             @if (! $this->enabled)
                 <x-jet-confirms-password wire:then="enableTwoFactorAuthentication">
-                    <x-jet-button type="button" wire:loading.attr="disabled">
+                    <x-jet-button class="bg-primary hover:bg-primary hover:opacity-50 transition duration-500" type="button" wire:loading.attr="disabled">
                         {{ __('Enable') }}
                     </x-jet-button>
                 </x-jet-confirms-password>

@@ -16,6 +16,7 @@ class LogBook extends Component
     public function __construct($logbooks)
     {
         $this->logbooks = $logbooks;
+        
     }
 
     /**

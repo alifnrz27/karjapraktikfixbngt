@@ -1,6 +1,6 @@
 <x-jet-form-section submit="updatePassword">
     <x-slot name="title">
-        {{ __('Update Password') }}
+        <div class="text-dark dark:text-white">{{ __('Update Password') }}</div>
     </x-slot>
 
     <x-slot name="description">
@@ -28,11 +28,11 @@
     </x-slot>
 
     <x-slot name="actions">
-        <x-jet-action-message class="mr-3" on="saved">
+        <x-jet-action-message class="mr-3 text-primary" on="saved">
             {{ __('Saved.') }}
         </x-jet-action-message>
 
-        <x-jet-button>
+        <x-jet-button class="bg-primary hover:bg-primary hover:opacity-50 transition duration-500">
             {{ __('Save') }}
         </x-jet-button>
     </x-slot>

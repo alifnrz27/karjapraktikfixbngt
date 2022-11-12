@@ -13,10 +13,12 @@ class Report extends Component
      */
     public $reports;
     public $reportStatus;
-    public function __construct($reports, $reportStatus)
+    public $submissionStatus;
+    public function __construct($reports, $reportStatus, $submissionStatus)
     {
         $this->reports = $reports;
         $this->reportStatus = $reportStatus;
+        $this->submissionStatus = $submissionStatus;
     }
 
     /**

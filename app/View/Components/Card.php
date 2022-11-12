@@ -11,9 +11,17 @@ class Card extends Component
      *
      * @return void
      */
-    public function __construct()
+
+     public $academicYear;
+     public $secondCard;
+     public $thirdCard;
+     public $fourthCard;
+    public function __construct($academicYear, $secondCard, $thirdCard, $fourthCard)
     {
-        //
+        $this->academicYear = $academicYear;
+        $this->secondCard = $secondCard;
+        $this->thirdCard = $thirdCard;
+        $this->fourthCard = $fourthCard;
     }
 
     /**

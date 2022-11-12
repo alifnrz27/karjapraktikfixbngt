@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\AfterPresentationController;
 use App\Http\Controllers\BeforePresentationController;
+use App\Http\Controllers\CalenderController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EvaluateController;
 use App\Http\Controllers\HardcopyController;
 use App\Http\Controllers\InvitationController;
 use App\Http\Controllers\JobTrainingController;
@@ -14,6 +16,7 @@ use App\Http\Controllers\PresentationController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\TitleController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,7 +31,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/dashboard');
 });
 
 Route::middleware([
@@ -37,6 +40,10 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::resource('/users', UserController::class)->except(['create', 'show', 'edit']);
+
+    Route::resource('/calender', CalenderController::class)->except(['create', 'show', 'edit']);
 
     Route::resource('/job-training', JobTrainingController::class)->except(['index']);
     Route::post('/job-training/member-upload', [JobTrainingController::class, 'memberUpload']);
@@ -72,6 +79,8 @@ Route::middleware([
     Route::post('/report/add', [ReportController::class, 'add']);
     Route::post('/report/accept/{id}', [ReportController::class, 'accept']);
     Route::post('/report/decline/{id}', [ReportController::class, 'decline']);
+
+    Route::post('/evaluate/{studentID}/{id}', [EvaluateController::class, 'store']);
 
     Route::post('/before-presentation/add', [BeforePresentationController::class, 'add']);
     Route::post('/before-presentation/accept/{student}/{submission}', [BeforePresentationController::class, 'accept']);

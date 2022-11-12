@@ -11,6 +11,11 @@
         <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
                 <div class="overflow-hidden">
+                    @if(count($titles) == 0)
+                    <div class="m-2 rounded-lg p-1 hover:opacity-50 transition duration-400">
+                        <img src="/assets/images/icons/undraw_no_data_re_kwbl.svg" class="mx-auto" width="200px" alt="">
+                    </div>
+                    @else
                     <table class="min-w-full">
                         <thead class="border-b">
                         <tr>
@@ -43,6 +48,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    @endif
                 </div>
             </div>
         </div>
@@ -51,30 +57,32 @@
 
 @if($submissionStatus < 30)
     @if($submissionStatus == 15 || $submissionStatus == 16 || $submissionStatus == 17)
-    <section id="add-title" class="fixed hidden w-full lg:w-4/12 p-3 mb-5 mx-auto my-auto dark:bg-dark top-0 shadow-lg bg-primary" style="margin: auto">
-        <div class="w-full p-4 bg-white dark:bg-secondary rounded-lg h-full max-h-[1000px] overflow-auto">
-            <div class="w-full flex justify-between self-center px-4">
-                <h1 class="text-base font-semibold text-primary dark:text-white md:text-xl">Ajukan judul baru</h1>
-                <button onclick="sembunyiPopup('add-title')" class="text-base text-black">x</button>
-            </div>
-            
-            <section id="logbook" class="pt-36 pb-32 dark:bg-slate-900">
-                <div class="container">        
-                    <form action="/title/add" method="POST">
-                        @csrf
-                        <div class="w-full lg:w-2/3 lg:mx-auto">
-                            <div class="w-full mb-8 px-4">
-                                <label for="title" class="text-base text-primary font-bold">Judul</label>
-                                <input type="text" id="title" name="title" value="{{ old('title') }}" class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary">
-                            </div>
-                            <div class="w-full">
-                                <button type="submit" class="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full w-full hover:opacity-80 hover:shadow-lg transition duration-500">Kirim</button>
-                            </div>
-                        </div>
-                    </form>
+    <div class="w-full">
+        <section id="add-title" class="fixed hidden w-full lg:w-4/12 p-3 mb-5 mx-auto my-auto dark:bg-dark top-0 shadow-lg bg-primary" style="margin: auto">
+            <div class="w-full p-4 bg-white dark:bg-secondary rounded-lg h-full max-h-[1000px] overflow-auto">
+                <div class="w-full flex justify-between self-center px-4">
+                    <h1 class="text-base font-semibold text-primary dark:text-white md:text-xl">Ajukan judul baru</h1>
+                    <button onclick="sembunyiPopup('add-title')" class="text-base text-black">x</button>
                 </div>
-            </section>
-        </div>
-    </section>
+                
+                <section id="logbook" class="pt-36 pb-32 dark:bg-slate-900">
+                    <div class="container">        
+                        <form action="/title/add" method="POST">
+                            @csrf
+                            <div class="w-full lg:w-2/3 lg:mx-auto">
+                                <div class="w-full mb-8 px-4">
+                                    <label for="title" class="text-base text-primary font-bold">Judul</label>
+                                    <input type="text" id="title" name="title" value="{{ old('title') }}" class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary">
+                                </div>
+                                <div class="w-full">
+                                    <button type="submit" class="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full w-full hover:opacity-80 hover:shadow-lg transition duration-500">Kirim</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </div>
     @endif
 @endif

@@ -11,9 +11,10 @@ class Evaluate extends Component
      *
      * @return void
      */
-    public function __construct()
+    public $evaluates;
+    public function __construct($evaluates)
     {
-        //
+        $this->evaluates = $evaluates;
     }
 
     /**

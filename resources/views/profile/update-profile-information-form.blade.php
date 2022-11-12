@@ -1,7 +1,9 @@
 <x-jet-form-section submit="updateProfileInformation">
-    <x-slot name="title">
-        {{ __('Profile Information') }}
+    <x-slot name="title" class="text-dark dark:text-white">
+        <div class="text-dark dark:text-white">{{ __('Profile Information') }}</div>
     </x-slot>
+
+    <p class="text-dark dark:text-white">Profile Information</p>
 
     <x-slot name="description">
         {{ __('Update your account\'s profile information and email address.') }}
@@ -52,13 +54,20 @@
             </div>
         @endif
 
+        
         <!-- Name -->
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="name" value="{{ __('Name') }}" />
             <x-jet-input id="name" type="text" class="mt-1 block w-full" wire:model.defer="state.name" autocomplete="name" />
             <x-jet-input-error for="name" class="mt-2" />
         </div>
-
+        
+        <!-- NIM_NIDN_NRK_NIP -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="nim_nidn_nrk_nip" value="{{ __('NIM/NIDN/NRK/NIP') }}" />
+            <x-jet-input id="nim_nidn_nrk_nip" type="text" class="mt-1 block w-full" wire:model.defer="state.nim_nidn_nrk_nip" autocomplete="nim_nidn_nrk_nip" />
+            <x-jet-input-error for="nim_nidn_nrk_nip" class="mt-2" />
+        </div>
         <!-- Email -->
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="email" value="{{ __('Email') }}" />
@@ -84,11 +93,11 @@
     </x-slot>
 
     <x-slot name="actions">
-        <x-jet-action-message class="mr-3" on="saved">
+        <x-jet-action-message class="mr-3 text-primary" on="saved">
             {{ __('Saved.') }}
         </x-jet-action-message>
 
-        <x-jet-button wire:loading.attr="disabled" wire:target="photo">
+        <x-jet-button wire:loading.attr="disabled" wire:target="photo" class="bg-primary hover:bg-primary hover:opacity-50 transition duration-300">
             {{ __('Save') }}
         </x-jet-button>
     </x-slot>

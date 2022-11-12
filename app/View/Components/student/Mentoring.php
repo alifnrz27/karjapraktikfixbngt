@@ -14,10 +14,12 @@ class Mentoring extends Component
 
      public $mentoring;
      public $mentoringStatus;
-    public function __construct($mentoring, $mentoringStatus)
+     public $submissionStatus;
+    public function __construct($mentoring, $mentoringStatus, $submissionStatus)
     {
         $this->mentoring = $mentoring;
         $this->mentoringStatus = $mentoringStatus;
+        $this->submissionStatus = $submissionStatus;
     }
 
     /**

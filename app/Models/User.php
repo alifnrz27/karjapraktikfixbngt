@@ -70,4 +70,9 @@ class User extends Authenticatable
     {
         return 'username';
     }
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
 }

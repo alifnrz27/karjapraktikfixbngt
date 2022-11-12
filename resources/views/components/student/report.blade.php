@@ -9,6 +9,11 @@
         <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
                 <div class="overflow-hidden">
+                    @if(count($reports) == 0)
+                    <div class="m-2 rounded-lg p-1 hover:opacity-50 transition duration-400">
+                        <img src="/assets/images/icons/undraw_no_data_re_kwbl.svg" class="mx-auto" width="200px" alt="">
+                    </div>
+                    @else
                     <table class="min-w-full">
                         <thead class="border-b">
                         <tr>
@@ -30,10 +35,10 @@
                                 @foreach($reports as $report)
                                 <tr class="border-b">
                                     <td class="px-6 py-4 text-sm font-medium text-gray-900">{{ $loop->iteration }}</td>
-                                    <td class="text-gray-900 font-light px-6 py-4">
+                                    <td class="text-gray-900 font-light py-4">
                                         <a href="{{ $report->report }}" target="_blank" class="">
-                                            <div class="m-2 rounded-lg bg-primary text-white p-1 hover:opacity-50 transition duration-400" width="25px">
-                                                <img src="/assets/images/icons/report.png" width="25px">
+                                            <div class="m-2 rounded-lg hover:opacity-50 transition duration-400">
+                                                <img src="/assets/images/icons/report.png"width="25px" alt="">
                                             </div>
                                         </a>
                                     </td>
@@ -45,6 +50,7 @@
                                 @endforeach
                         </tbody>
                     </table>
+                    @endif
                 </div>
             </div>
         </div>

@@ -21,8 +21,10 @@
         <script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
     </head>
     <body class="antialiased dark:bg-dark">
+        <nav id="navbar"></nav>
         {{ $slot }}
         <x-footer></x-footer>
+        <x-to-top></x-to-top>
         <script src="/assets/js/script.js"></script>
     </body>
 </html>

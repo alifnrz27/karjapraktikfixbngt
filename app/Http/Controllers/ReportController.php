@@ -42,7 +42,7 @@ class ReportController extends Controller
         $check = Report::where([
             'id' => $id,
             'lecturer_id' => auth()->user()->id,
-            'submission_report_status_id' => 1,
+            'report_status_id' => 1,
         ])->first();
 
         if(!$check){
@@ -52,9 +52,9 @@ class ReportController extends Controller
         Report::where([
             'id' => $id,
             'lecturer_id' => auth()->user()->id,
-            'submission_report_status_id' => 1,
+            'report_status_id' => 1,
         ])->update([
-            'submission_report_status_id' => 2,
+            'report_status_id' => 2,
             'description' =>$request->description,
         ]);
 
@@ -69,7 +69,7 @@ class ReportController extends Controller
         $check = Report::where([
             'id' => $id,
             'lecturer_id' => auth()->user()->id,
-            'submission_report_status_id' => 1,
+            'report_status_id' => 1,
         ])->first();
 
         if(!$check){
@@ -79,9 +79,9 @@ class ReportController extends Controller
         Report::where([
             'id' => $id,
             'lecturer_id' => auth()->user()->id,
-            'submission_report_status_id' => 1,
+            'report_status_id' => 1,
         ])->update([
-            'submission_report_status_id' => 3,
+            'report_status_id' => 3,
             'description' =>$request->description,
         ]);
 

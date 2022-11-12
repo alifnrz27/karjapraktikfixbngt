@@ -18,7 +18,7 @@
                     <hr>
                 </section>
 
-                <x-card></x-card>
+                <x-card :academicYear="$academicYear" :secondCard="$secondCard" :thirdCard="$thirdCard" :fourthCard="$fourthCard"></x-card>
 
                 @if(auth()->user()->role_id == 1)
                 <div id="admin">
@@ -55,8 +55,8 @@
                         <x-lecturer.presentation-queue :presentationsQueue="$presentationsQueue"></x-lecturer.presentation-queue>
                     </div>
 
-                    <div class="flex flex-wrap bg-gray-100 dark:bg-dark rounded-lg py-7 px-3">
-                        <x-lecturer.evaluate></x-lecturer.evaluate>
+                    <div class="flex flex-wrap bg-gray-100 dark:bg-dark rounded-lg py-7 px-3 justify-center">
+                        <x-lecturer.evaluate :evaluates="$evaluates"></x-lecturer.evaluate>
                     </div>
                 </div>
 
@@ -78,12 +78,12 @@
 
                     @if($submissionStatus >=15)
                     <div class="flex flex-wrap bg-gray-100 dark:bg-dark rounded-lg py-7 px-3">
-                        <x-student.mentoring :mentoring="$mentoring" :mentoringStatus="$mentoringStatus"></x-student.mentoring>
+                        <x-student.mentoring :mentoring="$mentoring" :mentoringStatus="$mentoringStatus" :submissionStatus="$submissionStatus"></x-student.mentoring>
                         <x-student.title :titles="$titles" :titleStatus="$titleStatus" :submissionStatus="$submissionStatus"></x-student.title>
                     </div>
 
                     <div class="flex flex-wrap bg-gray-100 dark:bg-dark rounded-lg py-7 px-3">
-                        <x-student.report :reports="$reports" :reportStatus="$reportStatus"></x-student.report>
+                        <x-student.report :reports="$reports" :reportStatus="$reportStatus" :submissionStatus="$submissionStatus"></x-student.report>
                     </div>
                     @endif
 
@@ -101,19 +101,4 @@
             <x-sidebar></x-sidebar>
         </div>
     </div>
-
-    <script>
-        // open pop up
-        function tampilPopup($id){
-            $popup = document.getElementById($id);
-            $popup.classList.add('block');
-            $popup.classList.remove('hidden');
-        }
-
-        function sembunyiPopup($id){
-            $popup = document.getElementById($id);
-            $popup.classList.remove('block');
-            $popup.classList.add('hidden');
-        }
-    </script>
 </x-app-layout>

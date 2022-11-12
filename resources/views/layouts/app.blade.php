@@ -28,6 +28,7 @@
     <body class="antialiased dark:bg-dark">
         {{-- <x-navbar></x-navbar> --}}
         <main>
+            <nav id="navbar"></nav>
             @if(session('status'))
                 <div class="mx-auto text-center mb-16 fixed flex-wrap flex" style="left: calc(50% - 200px);
                 ">
@@ -39,13 +40,12 @@
             {{ $slot }}
         </main>
         <x-footer></x-footer>
-        {{-- <x-to-top></x-to-top> --}}
+        <x-to-top></x-to-top>
 
         @stack('modals')
 
         @livewireScripts
 
         <script src="/assets/js/script.js"></script>
-       
     </body>
 </html>

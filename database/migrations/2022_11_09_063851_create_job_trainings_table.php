@@ -40,8 +40,6 @@ return new class extends Migration
             $table->string('statement_letter')->nullable();
             $table->boolean('evaluated_id')->default(0);
             $table->string('date_presentation')->nullable();
-            $table->boolean('score_presentation')->nullable();
-            $table->boolean('score_mentoring')->nullable();
             $table->string('report_of_presentation')->nullable();
             $table->string('notes')->nullable();
             $table->string('report_revision')->nullable();

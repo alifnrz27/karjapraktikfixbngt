@@ -1,6 +1,6 @@
 <x-jet-action-section>
     <x-slot name="title">
-        {{ __('Delete Account') }}
+        <div class="text-dark dark:text-white">{{ __('Delete Account') }}</div>
     </x-slot>
 
     <x-slot name="description">

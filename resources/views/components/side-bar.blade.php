@@ -1,30 +1,39 @@
 <div class="rounded-lg bg-primary dark:bg-slate-700 h-full lg:w-[70px] right-0 fixed my-auto">                
     <div id="nav-menu-aside" class="w-full mb-12 pt-10 my-auto justify-center items-center">
+        <div class="flex items-center mt-3 lg:mt-0 mb-4 block mx-auto">
+            <div class="flex mx-auto">
+                <input type="checkbox" class="hidden" id="dark-toggle">
+                <label for="dark-toggle">
+                    <div class="flex h-5 w-9 cursor-pointer items-center rounded-full bg-white p-1">
+                        <div class="toggle-circle h-4 w-4 rounded-full bg-primary transition duration-300 "></div>
+                    </div>
+                </label>
+            </div>
+        </div>
         <a href="/dashboard" class="">
             <div class="container flex mb-4 py-2 hover:bg-white hover:rounded-lg transition duration-300">
                 <img src="/assets/images/icons/dashboard.png" width="40px" class="mx-auto" alt="">
             </div>
         </a>
-        <a href="/project/create" class="">
+        @if(auth()->user()->role_id == 3)
+        <a href="/student-register" class="">
             <div class="container flex mb-4 py-2 hover:bg-white hover:rounded-lg transition duration-300">
-                <img src="/assets/images/icons/project.png" width="40px" class="mx-auto" alt="">
+                <img src="/assets/images/icons/register.png" width="40px" class="mx-auto" alt="">
             </div>
         </a>
-        <a href="/blog/create" class="">
+        @endif
+        @if(auth()->user()->role_id == 1)
+        <a href="/calender" class="">
             <div class="container flex mb-4 py-2 hover:bg-white hover:rounded-lg transition duration-300">
-                <img src="/assets/images/icons/blog.png" width="40px" class="mx-auto" alt="">
+                <img src="/assets/images/icons/calendar.png" width="40px" class="mx-auto" alt="">
             </div>
         </a>
-        <a href="/experience/create" class="">
+        <a href="/users" class="">
             <div class="container flex mb-4 py-2 hover:bg-white hover:rounded-lg transition duration-300">
-                <img src="/assets/images/icons/experience.png" width="40px" class="mx-auto" alt="">
+                <img src="/assets/images/icons/man.png" width="40px" class="mx-auto" alt="">
             </div>
         </a>
-        <a href="/category/create" class="">
-            <div class="container flex mb-4 py-2 hover:bg-white hover:rounded-lg transition duration-300">
-                <img src="/assets/images/icons/subfolder.png" width="40px" class="mx-auto" alt="">
-            </div>
-        </a>
+        @endif
         <a href="/user/profile" class="">
             <div class="container flex mb-4 py-2 hover:bg-white hover:rounded-lg transition duration-300">
                 <img src="/assets/images/icons/user.png" width="40px" class="mx-auto" alt="">

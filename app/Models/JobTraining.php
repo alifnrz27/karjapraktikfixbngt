@@ -35,8 +35,6 @@ class JobTraining extends Model
         'statement_letter',
         'evaluated_id',
         'date_presentation',
-        'score_presentation',
-        'score_mentoring',
         'report_of_presentation',
         'notes',
         'report_revision',
@@ -47,5 +45,15 @@ class JobTraining extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function lecturer()
+    {
+        return $this->belongsTo(User::class, 'lecturer_id');
+    }
+
+    public function submissionStatus()
+    {
+        return $this->belongsTo(SubmissionStatus::class, 'submission_status_id');
     }
 }

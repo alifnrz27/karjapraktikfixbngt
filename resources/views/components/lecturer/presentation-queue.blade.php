@@ -1,11 +1,16 @@
-<div class="w-full lg:w-1/2 p-4 mb-4 bg-white dark:bg-secondary rounded-lg h-full max-h-[1000px] overflow-auto">
+<div class="w-full lg:w-1/2 p-4 mb-4 bg-white dark:bg-secondary rounded-lg h-full max-h-[2000px] overflow-auto">
     <div class="w-full self-center px-4 lg:w-1/2">
-        <h1 class="text-base font-semibold text-primary dark:text-white md:text-xl">Daftar pengajuan presentasi</h1>
+        <h1 class="text-base font-semibold text-primary dark:text-white md:text-xl">Daftar antri presentasi</h1>
     </div>
     <div class="flex flex-col">
         <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
                 <div class="overflow-hidden">
+                    @if(count($presentationsQueue) == 0)
+                    <div class="m-2 rounded-lg p-1 hover:opacity-50 transition duration-400">
+                        <img src="/assets/images/icons/undraw_no_data_re_kwbl.svg" class="mx-auto" width="200px" alt="">
+                    </div>
+                    @else
                     <table class="min-w-full">
                         <thead class="border-b">
                         <tr>
@@ -53,6 +58,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    @endif
                 </div>
             </div>
         </div>
