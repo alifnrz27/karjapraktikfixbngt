@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
             SemesterSeeder::class,
             SubmissionStatusSeeder::class,
             TitleStatusSeeder::class,
+            UserSeeder::class,
             ValidEmailSeeder::class,
         ]);
     }

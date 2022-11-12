@@ -56,7 +56,7 @@
                 {{ __('Log Out Other Browser Sessions') }}
             </x-jet-button>
 
-            <x-jet-action-message class="ml-3 bg-primary" on="loggedOut">
+            <x-jet-action-message class="ml-3 text-primary" on="loggedOut">
                 {{ __('Done.') }}
             </x-jet-action-message>
         </div>

@@ -20,8 +20,11 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
     {
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
+            'username' => ['required', 'max:255', 'regex:/^\S*$/u', Rule::unique('users')->ignore($user->id)],
             'nim_nidn_nrk_nip' => ['nullable', 'string', 'max:20'],
             'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
+            'address' => ['nullable', 'string', 'max:250'],
+            'phone_number' => ['nullable', 'string', 'max:20'],
             'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
         ])->validateWithBag('updateProfileInformation');
 
@@ -35,7 +38,10 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         } else {
             $user->forceFill([
                 'name' => $input['name'],
+                'username' => $input['username'],
                 'nim_nidn_nrk_nip' => $input['nim_nidn_nrk_nip'],
+                'address' => $input['address'],
+                'phone_number' => $input['phone_number'],
                 'email' => $input['email'],
             ])->save();
         }
@@ -52,8 +58,11 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
     {
         $user->forceFill([
             'name' => $input['name'],
+            'username' => $input['username'],
             'nim_nidn_nrk_nip' => $input['nim_nidn_nrk_nip'],
             'email' => $input['email'],
+            'address' => $input['address'],
+            'phone_number' => $input['phone_number'],
             'email_verified_at' => null,
         ])->save();
 
