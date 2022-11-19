@@ -34,17 +34,17 @@
                                 </td>
                                 <td class="text-sm text-gray-900 font-light px-6 py-4">
                                     <div>
-                                        <button onclick="tampilPopup('accept-presentation-{{ $mentoring->user->username }}')">
+                                        <button onclick="tampilPopup('accept-presentation-{{ $p->user->username }}')">
                                             <div class="m-2 rounded-lg bg-primary p-1 hover:opacity-50 transition duration-400">
                                                 <img src="/assets/images/icons/check.png"width="25px" alt="">
                                             </div>
                                         </button>
 
-                                        <section id="accept-presentation-{{ $mentoring->user->username }}" class="fixed hidden w-full lg:w-4/12 p-3 mb-5 mx-auto my-auto left-0 dark:bg-dark top-0 shadow-lg bg-primary" style="margin: auto">
+                                        <section id="accept-presentation-{{ $p->user->username }}" class="fixed hidden w-full lg:w-4/12 p-3 mb-5 mx-auto my-auto left-0 dark:bg-dark top-0 shadow-lg bg-primary" style="margin: auto">
                                             <div class="w-full p-4 bg-white dark:bg-secondary rounded-lg h-full max-h-[1000px] overflow-auto">
                                                 <div class="w-full flex justify-between self-center px-4">
-                                                    <h1 class="text-base font-semibold text-primary dark:text-white md:text-xl">Terima presentasi {{ $mentoring->user->name }}</h1>
-                                                    <button onclick="sembunyiPopup('accept-presentation-{{ $mentoring->user->username }}')" class="text-base text-black">x</button>
+                                                    <h1 class="text-base font-semibold text-primary dark:text-white md:text-xl">Terima presentasi {{ $p->user->name }}</h1>
+                                                    <button onclick="sembunyiPopup('accept-presentation-{{ $p->user->username }}')" class="text-base text-black">x</button>
                                                 </div>
                                                 
                                                 <section id="logbook" class="pt-36 pb-32 dark:bg-slate-900">

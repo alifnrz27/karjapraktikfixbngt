@@ -57,6 +57,7 @@
 
                     <div class="flex flex-wrap bg-gray-100 dark:bg-dark rounded-lg py-7 px-3 justify-center">
                         <x-lecturer.evaluate :evaluates="$evaluates"></x-lecturer.evaluate>
+                        <x-lecturer.student :students="$students"></x-lecturer.student>
                     </div>
                 </div>
 
@@ -74,9 +75,9 @@
                         <x-student.after-presentation></x-student.after-presentation>
                         @endif
                     </div>
-                    <x-student.logbook :logbooks="$logbooks"></x-student.logbook>
-
+                    
                     @if($submissionStatus >=15)
+                    <x-student.logbook :logbooks="$logbooks"></x-student.logbook>
                     <div class="flex flex-wrap bg-gray-100 dark:bg-dark rounded-lg py-7 px-3">
                         <x-student.mentoring :mentoring="$mentoring" :mentoringStatus="$mentoringStatus" :submissionStatus="$submissionStatus"></x-student.mentoring>
                         <x-student.title :titles="$titles" :titleStatus="$titleStatus" :submissionStatus="$submissionStatus"></x-student.title>

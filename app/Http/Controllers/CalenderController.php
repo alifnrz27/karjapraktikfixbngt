@@ -15,6 +15,9 @@ class CalenderController extends Controller
      */
     public function index()
     {
+        if(auth()->user()->role_id != 1){
+            return abort(403);
+        }
         $data['calenders'] = AcademicYear::with(['semester'])->latest()->get();
         $data['semesters'] = Semester::get();
         $data['activeYear'] = AcademicYear::where(['is_active' => 1])->with(['semester'])->first();

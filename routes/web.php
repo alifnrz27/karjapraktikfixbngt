@@ -98,6 +98,6 @@ Route::middleware([
 
     Route::post('/status/accept/{student}/{submission}', [StatusController::class, 'accept']);
     Route::post('/status/decline/{student}/{submission}', [StatusController::class, 'decline']);
-    Route::post('/status/update/accept/{student}/{submission}', [StatusController::class, 'updateAccept']);
+    Route::post('/status/update/accept/{student}/{submission}', [StatusController::class, 'updateAcept']);
     Route::post('/status/update/decline/{student}/{submission}', [StatusController::class, 'updateDecline']);
 });

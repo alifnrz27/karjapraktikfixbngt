@@ -39,8 +39,7 @@
                                         @csrf
                                         <button type="submit">
                                             <div class="m-2 rounded-lg bg-primary p-1 hover:opacity-50 transition duration-400">
-                                                <img src="/assets/images/icons/check.png"width="25px" alt="">
-                                            </div>
+                                                <img src="/assets/images/icons/graduated.png"width="25px" alt=""> </div>
                                         </button>
                                     </form>
 
@@ -48,7 +47,7 @@
                                         @csrf
                                         <button type="submit">
                                             <div class="m-2 rounded-lg bg-red-500 p-1 hover:opacity-50 transition duration-400">
-                                                <img src="/assets/images/icons/garbage.png"width="25px" alt="">
+                                                <img src="/assets/images/icons/stop.png"width="25px" alt="">
                                             </div>
                                         </button>
                                     </form>
@@ -107,16 +106,16 @@
                                                 @csrf
                                                 <button type="submit">
                                                     <div class="m-2 rounded-lg bg-primary p-1 hover:opacity-50 transition duration-400">
-                                                        <img src="/assets/images/icons/check.png"width="25px" alt="">
+                                                        <img src="/assets/images/icons/graduated.png"width="25px" alt="">
                                                     </div>
                                                 </button>
                                             </form>
                                         @elseif($s->user->active_id == 0)
-                                            <form action="/status/update/accept/{{ $s->user_id }}/{{ $s->id }}" method="POST">
+                                            <form action="/status/update/decline/{{ $s->user_id }}/{{ $s->id }}" method="POST">
                                         @csrf
                                         <button type="submit">
                                             <div class="m-2 rounded-lg bg-red-500 p-1 hover:opacity-50 transition duration-400">
-                                                <img src="/assets/images/icons/garbage.png"width="25px" alt="">
+                                                <img src="/assets/images/icons/stop.png"width="25px" alt="">
                                             </div>
                                         </button>
                                         </form>

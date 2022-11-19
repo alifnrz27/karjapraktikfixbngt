@@ -29,7 +29,7 @@ class LetterController extends Controller
 
         // jika ada kelompok
         else{            
-            JobTraining::where(['team_id'=> $submission->team_id, 'submission_status_id'=>10])
+            JobTraining::where([['team_id', '=', $submission->team_id], ['submission_status_id', '!=', 3]])
             ->update([
                 'submission_status_id' => 12,
                 'from_major' => $request->replyFromMajor,

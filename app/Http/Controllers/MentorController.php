@@ -49,6 +49,8 @@ class MentorController extends Controller
         // cek apakah dosen dan mahasiswa ada, takutnya diubah di inspect elemen
         $mentor = User::where(['username' => $request->mentor, 'role_id' => 2, 'active_id' => 1])->first();
         $student = User::where(['username' => $student, 'role_id' => 3, 'active_id' => 1])->first();
+
+        
         // cek apakah benar student sudah mendapatkan mentor
         $submission = JobTraining::where([
             'user_id' => $student->id,
@@ -62,17 +64,13 @@ class MentorController extends Controller
         $checkMentor = JobTraining::where(['user_id' => $student->id, 
         'lecturer_id' => $mentor->id,
         'id' => $id])->first();
-        if(!$checkMentor){
+        if($checkMentor){
             return back()->with('status', 'Gagal menambahkan, data sudah ada!');
-        }
-
-        if(!$submission){
-            return back()->with('status', 'Mahasiswa tidak ditemukan');// ga ditemukan submissionnnya
         }
 
         // jika ada maka ubah data mentornya
         JobTraining::where([
-            'student_id' => $student->id, 
+            'user_id' => $student->id, 
             'id' => $id,
             ])->update(['lecturer_id' => $mentor->id]);
 

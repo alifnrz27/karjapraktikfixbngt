@@ -39,22 +39,22 @@
                                 </td>
                                 <td class="text-sm text-gray-900 font-light px-6 py-4 flex">
                                     <div>
-                                        <button onclick="tampilPopup('choose-mentor-{{ $s->user->username }}')">
-                                            <div class="m-2 rounded-lg bg-red-500 p-1 hover:opacity-50 transition duration-400">
-                                                <img src="/assets/images/icons/garbage.png"width="25px" alt="">
+                                        <button onclick="tampilPopup('choose-mentor-{{ $l->user->username }}')">
+                                            <div class="m-2 rounded-lg bg-primary p-1 hover:opacity-50 transition duration-400">
+                                                <img src="/assets/images/icons/edit.png"width="25px" alt="">
                                             </div>
                                         </button>
 
-                                        <section id="choose-mentor-{{ $s->user->username }}" class="fixed hidden w-full lg:w-4/12 p-3 mb-5 mx-auto my-auto left-0 dark:bg-dark top-0 shadow-lg bg-primary" style="margin: auto">
+                                        <section id="choose-mentor-{{ $l->user->username }}" class="fixed hidden w-full lg:w-4/12 p-3 mb-5 mx-auto my-auto left-0 dark:bg-dark top-0 shadow-lg bg-primary" style="margin: auto">
                                             <div class="w-full p-4 bg-white dark:bg-secondary rounded-lg h-full max-h-[1000px] overflow-auto">
                                                 <div class="w-full flex justify-between self-center px-4">
-                                                    <h1 class="text-base font-semibold text-primary dark:text-white md:text-xl">Masukkan dospem untuk {{ $s->user->name }}</h1>
-                                                    <button onclick="sembunyiPopup('choose-mentor-{{ $s->user->username }}')" class="text-base text-black">x</button>
+                                                    <h1 class="text-base font-semibold text-primary dark:text-white md:text-xl">Masukkan dospem untuk {{ $l->user->name }}</h1>
+                                                    <button onclick="sembunyiPopup('choose-mentor-{{ $l->user->username }}')" class="text-base text-black">x</button>
                                                 </div>
                                                 
                                                 <section id="logbook" class="pt-36 pb-32 dark:bg-slate-900">
                                                     <div class="container">        
-                                                        <form action="/mentor/add/{{ $l->user->name }}" method="POST">
+                                                        <form action="/mentor/add/{{ $l->user->username }}" method="POST">
                                                             @csrf
                                                             <div class="w-full lg:w-2/3 lg:mx-auto">
                                                                 <div class="w-full mb-8 px-4">
@@ -141,7 +141,7 @@
                                                     
                                                     <section id="logbook" class="pt-36 pb-32 dark:bg-slate-900">
                                                         <div class="container">        
-                                                            <form action="/mentor/update/{{ $s->user->name }}/{{ $s->id }}" method="POST">
+                                                            <form action="/mentor/update/{{ $s->user->username }}/{{ $s->id }}" method="POST">
                                                                 @csrf
                                                                 <div class="w-full lg:w-2/3 lg:mx-auto">
                                                                     <div class="w-full mb-8 px-4">

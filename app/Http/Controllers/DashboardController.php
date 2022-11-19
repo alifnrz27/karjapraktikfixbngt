@@ -24,15 +24,27 @@ class DashboardController extends Controller
 
             $data['secondCard'] = JobTraining::where([
                 'academic_year_id' => $academicYear->id,
+                ['submission_status_id', '!=', 3],
+                ['submission_status_id', '!=', 6],
+                ['submission_status_id', '!=', 7],
+                ['submission_status_id', '!=', 8],
             ])->count();
 
             $data['thirdCard'] = JobTraining::where([
                 ['academic_year_id', '=', $academicYear->id],
+                ['submission_status_id', '!=', 3],
+                ['submission_status_id', '!=', 6],
+                ['submission_status_id', '!=', 7],
+                ['submission_status_id', '!=', 8],
                 ['submission_status_id', '>=' , 30]
             ])->count();
 
             $data['fourthCard'] = JobTraining::where([
                 ['academic_year_id', '=', $academicYear->id],
+                ['submission_status_id', '!=', 3],
+                ['submission_status_id', '!=', 6],
+                ['submission_status_id', '!=', 7],
+                ['submission_status_id', '!=', 8],
                 ['submission_status_id', '<=' , 13]
             ])->count();
 
@@ -137,6 +149,11 @@ class DashboardController extends Controller
                 ['submission_status_id', '>=', 24],
                 ['evaluated_id', '=', 0],
             ])->with(['user'])->get();
+
+            $data['students'] = JobTraining::where([
+                'lecturer_id' => auth()->user()->id,
+                'academic_year_id' => $academicYear->id
+            ])->orderBy('submission_status_id', 'asc')->with(['user', 'submissionStatus'])->get();
         }
 
         elseif(auth()->user()->role_id == 3){
