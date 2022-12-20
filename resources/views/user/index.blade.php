@@ -54,7 +54,7 @@
                                                 @if($user->active_id == 1)
                                                 <td class="text-sm text-gray-900 font-light px-6 py-4 flex">            
                                                     <div>
-                                                        <button onclick="tampilPopup('update-role-user-{{ $user->username }}')">
+                                                        <button title="edit role" onclick="tampilPopup('update-role-user-{{ $user->username }}')">
                                                             <div class="m-2 rounded-lg bg-primary p-1 hover:opacity-50 transition duration-400">
                                                                 <img src="/assets/images/icons/edit.png"width="25px" alt="">
                                                             </div>
@@ -97,7 +97,7 @@
                                                     </div>
 
                                                     @if($user->role_id == 3)
-                                                    <form action="/users/{{ $user->username }}" method="post">
+                                                    <form title="block" action="/users/{{ $user->username }}" method="post">
                                                         @csrf
                                                         @method('delete')
                                                         <button type="submit">

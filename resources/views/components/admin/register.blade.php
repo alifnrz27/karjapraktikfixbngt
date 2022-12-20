@@ -54,7 +54,7 @@
                                         <a target="_blank" href="{{ $s->vaccine }}">Vaksin</a>
                                     </td>
                                     <td class="text-sm text-gray-900 font-light px-6 py-4 flex">
-                                        <form action="/job-training/accept/{{ $s->user->username }}/{{ $s->id }}" method="post">
+                                        <form title="terima" action="/job-training/accept/{{ $s->user->username }}/{{ $s->id }}" method="post">
                                             @csrf
                                             <button type="submit">
                                                 <div class="m-2 rounded-lg bg-primary p-1 hover:opacity-50 transition duration-400">
@@ -64,7 +64,7 @@
                                         </form>
 
                                         <div>
-                                            <button onclick="tampilPopup('decline-register-{{ $s->user->username }}')">
+                                            <button title="tolak" onclick="tampilPopup('decline-register-{{ $s->user->username }}')">
                                                 <div class="m-2 rounded-lg bg-red-500 p-1 hover:opacity-50 transition duration-400">
                                                     <img src="/assets/images/icons/garbage.png"width="25px" alt="">
                                                 </div>

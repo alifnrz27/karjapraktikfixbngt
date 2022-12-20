@@ -41,7 +41,7 @@
                                     <td class="px-6 py-4 text-sm font-medium text-gray-900">{{ $q->time }}</td>
                                     <td class="px-6 py-4 text-sm font-medium text-gray-900">{{ $q->description }}</td>
                                     <td class="text-sm text-gray-900 font-light px-6 py-4 flex">
-                                        <form action="/mentoring/finished/{{ $q->id }}" method="post">
+                                        <form title="selesai" action="/mentoring/finished/{{ $q->id }}" method="post">
                                             @csrf
                                             <button type="submit">
                                                 <div class="m-2 rounded-lg bg-primary p-1 hover:opacity-50 transition duration-400">
@@ -51,7 +51,7 @@
                                         </form>
 
                                         <div>
-                                            <button onclick="tampilPopup('update-mentoring-{{ $q->student->username }}')">
+                                            <button title="update" onclick="tampilPopup('update-mentoring-{{ $q->student->username }}')">
                                                 <div class="m-2 rounded-lg bg-primary p-1 hover:opacity-50 transition duration-400">
                                                     <img src="/assets/images/icons/edit.png"width="25px" alt="">
                                                 </div>
@@ -88,7 +88,7 @@
                                             </section>
                                         </div>
 
-                                        <form action="/mentoring/cancel/{{ $q->id }}" method="post">
+                                        <form title="hapus" action="/mentoring/cancel/{{ $q->id }}" method="post">
                                             @csrf
                                             <button type="submit">
                                                 <div class="m-2 rounded-lg bg-red-500 p-1 hover:opacity-50 transition duration-400">

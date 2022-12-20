@@ -34,7 +34,7 @@
                                 </td>
                                 <td class="text-sm text-gray-900 font-light px-6 py-4">
                                     <div>
-                                        <button onclick="tampilPopup('accept-presentation-{{ $p->user->username }}')">
+                                        <button title="terima" onclick="tampilPopup('accept-presentation-{{ $p->user->username }}')">
                                             <div class="m-2 rounded-lg bg-primary p-1 hover:opacity-50 transition duration-400">
                                                 <img src="/assets/images/icons/check.png"width="25px" alt="">
                                             </div>

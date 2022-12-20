@@ -34,7 +34,7 @@
                                 </td>
                                 <td class="text-sm text-gray-900 font-light px-6 py-4 flex">
                                     <div>
-                                        <button onclick="tampilPopup('accept-mentoring-{{ $m->student->username }}')">
+                                        <button title="terima" onclick="tampilPopup('accept-mentoring-{{ $m->student->username }}')">
                                             <div class="m-2 rounded-lg bg-primary p-1 hover:opacity-50 transition duration-400">
                                                 <img src="/assets/images/icons/check.png"width="25px" alt="">
                                             </div>
@@ -73,7 +73,7 @@
 
                                     <form action="/mentoring/decline/{{ $m->student_id }}" method="post">
                                         @csrf
-                                        <button type="submit">
+                                        <button title="tolak" type="submit">
                                             <div class="m-2 rounded-lg bg-red-500 p-1 hover:opacity-50 transition duration-400">
                                                 <img src="/assets/images/icons/garbage.png"width="25px" alt="">
                                             </div>

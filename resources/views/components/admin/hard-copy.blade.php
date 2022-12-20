@@ -33,7 +33,7 @@
                                     {{ $h->user->name }}
                                     </td>
                                     <td class="text-sm text-gray-900 font-light px-6 py-4 flex">
-                                        <form action="/hardcopy/accept/{{ $h->user_id }}/{{ $h->id }}" method="post">
+                                        <form title="terima" action="/hardcopy/accept/{{ $h->user_id }}/{{ $h->id }}" method="post">
                                             @csrf
                                             <button type="submit">
                                                 <div class="m-2 rounded-lg bg-primary p-1 hover:opacity-50 transition duration-400">

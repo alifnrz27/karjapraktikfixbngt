@@ -51,7 +51,7 @@
                                         <a target="_blank" href="{{ $b->screenshot_before_presentation }}">SS</a>
                                     </td>
                                     <td class="text-sm text-gray-900 font-light px-6 py-4 flex">
-                                        <form action="/before-presentation/accept/{{ $b->user_id }}/{{ $b->id }}" method="post">
+                                        <form title="terima" action="/before-presentation/accept/{{ $b->user_id }}/{{ $b->id }}" method="post">
                                             @csrf
                                             <button type="submit">
                                                 <div class="m-2 rounded-lg bg-primary p-1 hover:opacity-50 transition duration-400">
@@ -61,7 +61,7 @@
                                         </form>
 
                                         <div>
-                                            <button onclick="tampilPopup('decline-before-presentation-{{ $b->user->username }}')">
+                                            <button title="tolak" onclick="tampilPopup('decline-before-presentation-{{ $b->user->username }}')">
                                                 <div class="m-2 rounded-lg bg-red-500 p-1 hover:opacity-50 transition duration-400">
                                                     <img src="/assets/images/icons/garbage.png"width="25px" alt="">
                                                 </div>

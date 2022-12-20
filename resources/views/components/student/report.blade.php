@@ -36,7 +36,7 @@
                                 <tr class="border-b">
                                     <td class="px-6 py-4 text-sm font-medium text-gray-900">{{ $loop->iteration }}</td>
                                     <td class="text-gray-900 font-light py-4">
-                                        <a href="{{ $report->report }}" target="_blank" class="">
+                                        <a title="laporan" href="{{ $report->report }}" target="_blank" class="">
                                             <div class="m-2 rounded-lg hover:opacity-50 transition duration-400">
                                                 <img src="/assets/images/icons/report.png"width="25px" alt="">
                                             </div>

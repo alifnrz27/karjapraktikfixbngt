@@ -53,7 +53,7 @@
                                             </td>
                                             <td class="text-sm dark:text-white text-dark font-light px-6 py-4 flex">
                                                 <td class="text-sm text-gray-900 font-light px-6 py-4 flex">
-                                                    <form action="/calender/{{ $calender->id }}" method="post">
+                                                    <form title="hapus" action="/calender/{{ $calender->id }}" method="post">
                                                         @csrf
                                                         @method('delete')
                                                         <button type="submit">

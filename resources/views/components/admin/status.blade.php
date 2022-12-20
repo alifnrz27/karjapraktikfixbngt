@@ -35,7 +35,7 @@
                                 {{ $s->user->name }}
                                 </td>
                                 <td class="text-sm text-gray-900 font-light px-6 py-4 flex">
-                                    <form action="/status/accept/{{ $s->user_id }}/{{ $s->id }}" method="post">
+                                    <form title="lulus" action="/status/accept/{{ $s->user_id }}/{{ $s->id }}" method="post">
                                         @csrf
                                         <button type="submit">
                                             <div class="m-2 rounded-lg bg-primary p-1 hover:opacity-50 transition duration-400">
@@ -43,7 +43,7 @@
                                         </button>
                                     </form>
 
-                                    <form action="/status/decline/{{ $s->user_id }}/{{ $s->id }}" method="post">
+                                    <form title="tidak lulus" action="/status/decline/{{ $s->user_id }}/{{ $s->id }}" method="post">
                                         @csrf
                                         <button type="submit">
                                             <div class="m-2 rounded-lg bg-red-500 p-1 hover:opacity-50 transition duration-400">

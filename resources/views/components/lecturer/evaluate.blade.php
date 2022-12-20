@@ -47,7 +47,7 @@
                                     <form action="/evaluate/{{ $evaluate->user_id }}/{{ $evaluate->id }}" method="post">
                                         @csrf
                                         <button type="submit">
-                                            <div class="m-2 rounded-lg bg-primary p-1 hover:opacity-50 transition duration-400">
+                                            <div title="checked" class="m-2 rounded-lg bg-primary p-1 hover:opacity-50 transition duration-400">
                                                 <img src="/assets/images/icons/check.png"width="25px" alt="">
                                             </div>
                                         </button>
