@@ -18,6 +18,13 @@ class DashboardController extends Controller
 {
     public function index () {
         $academicYear = AcademicYear::where(['is_active' => 1])->first();
+        if(!$academicYear){
+            if(auth()->user()->role_id == 1){
+                return redirect('/calender')->with('status', 'tambahkan tahun ajaran!');
+            }else{
+                return redirect('/user/profile');
+            }
+        }
         $data['academicYear'] = $academicYear->year;
 
         if(auth()->user()->role_id == 1){

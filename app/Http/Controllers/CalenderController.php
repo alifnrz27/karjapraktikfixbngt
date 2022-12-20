@@ -106,11 +106,15 @@ class CalenderController extends Controller
     {
         $year = AcademicYear::where('id', $year)->first();
         $year->delete();
-        if($year->is_active == 1){
-            $latestYear = AcademicYear::latest()->first();
-            $latestYear->update([
-                'is_active' => 1
-            ]);
+
+        $checkYears = AcademicYear::get();
+        if(count($checkYears) > 0){
+            if($year->is_active == 1){
+                $latestYear = AcademicYear::latest()->first();
+                $latestYear->update([
+                    'is_active' => 1
+                ]);
+            }
         }
 
         return back()->with('status', 'Berhasil menghapus tahun ajaran');

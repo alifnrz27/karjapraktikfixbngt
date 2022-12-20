@@ -60,6 +60,9 @@ class JobTrainingController extends Controller
         $submissionStatus = 9;
         $teamID = 0;
         $academicYear = AcademicYear::where('is_active', 1)->first();
+        if(!$academicYear){
+            return back()->with('status', 'Tahun ajaran tidak tersedia, minta admin mengaktifkan');
+        }
         $rules = [
             'form' => 'required',
             'vaccine' => 'required',

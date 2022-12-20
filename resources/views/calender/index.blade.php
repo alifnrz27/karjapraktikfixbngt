@@ -10,7 +10,9 @@
             <div class="container">
                 <div class="w-full px-4">
                     <div class="mx-auto text-center mb-16 flex justify-between">
+                        @if(count($calenders) > 0)
                         <h4 class="font-semibold text-lg dark:text-white text-primary mb-2">Tahun Aktif {{ $activeYear->semester->name }} {{ $activeYear->year }}</h4>
+                        @endif
                         <button onclick="tampilPopup('add-new-calender')" class="text-base font-semibold text-white mb-3 bg-primary py-3 px-4 rounded-full hover:opacity-80 hover:shadow-lg transition duration-500 w-2/12">Tambah Tahun Ajaran</button>
                     </div>
                 </div>
