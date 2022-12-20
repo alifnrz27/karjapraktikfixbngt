@@ -5,8 +5,21 @@
             <x-jet-validation-errors class=" fixed mx-auto items-center self-center justify-center bg-white px-5 py-7 rounded-md" />
         </div>
     </div>
-    <div class="w-11/12 lg:w-11/12 flex pt-5 pb-32">
-        <section id="student-register" class="w-full pt-36 pb-32 dark:bg-slate-900">
+    <div class="w-11/12 lg:w-11/12 flex pb-32">
+        <section id="student-register" class="w-full pt-6 pb-32 dark:bg-slate-900">
+            <section class="pb-4">
+                <div class="container flex justify-between">
+                    <div class=" self-center px-4">
+                        <h1 class="text-base font-semibold text-primary md:text-xl">Selamat Datang, <span class="block font-bold text-dark dark:text-white text-4xl lg:text-5xl">{{ auth()->user()->name }}</span></h1>
+                        <h1 class="text-base font-semibold text-primary md:text-l">{{ date('d-M-Y') }}</h1>
+                    </div>
+                    <div class=" self-center px-4 hidden sm:block">
+                        <h1 class="text-base font-semibold text-primary md:text-l">Kerja Praktik <span class="block font-bold text-dark dark:text-white text-4xl lg:text-2xl">Teknik Elektro</span></h1>
+                        <h1 class="text-base font-semibold text-primary md:text-sm">ITERA</h1>
+                    </div>
+                </div>
+                <hr>
+            </section>
             <div class="container">
                 <div class="w-full px-4">
                     <div class="mx-auto text-center mb-16 flex justify-between">
@@ -46,11 +59,11 @@
                                     <tbody>
                                         @foreach($calenders as $calender)
                                         <tr class="border-b @if($calender->is_active == 1){{ "bg-gray-300" }}@endif">
-                                            <td class="px-6 py-4 text-sm font-medium dark:text-white text-dark">{{ $loop->iteration }}</td>
-                                            <td class="text-sm dark:text-white text-dark font-light px-6 py-4">
+                                            <td class="text-sm font-light px-6 py-4 @if($calender->is_active == 1){{ "dark:text-gray-900" }}@else {{ "dark:text-white text-dark" }} @endif">{{ $loop->iteration }}</td>
+                                            <td class="text-sm font-light px-6 py-4 @if($calender->is_active == 1){{ "dark:text-gray-900" }}@else {{ "dark:text-white text-dark" }} @endif">
                                             {{ $calender->semester->name }}
                                             </td>
-                                            <td class="text-sm dark:text-white text-dark font-light px-6 py-4">
+                                            <td class="text-sm font-light px-6 py-4 @if($calender->is_active == 1){{ "dark:text-gray-900" }}@else {{ "dark:text-white text-dark" }} @endif">
                                                 {{ $calender->year }}
                                             </td>
                                             <td class="text-sm dark:text-white text-dark font-light px-6 py-4 flex">

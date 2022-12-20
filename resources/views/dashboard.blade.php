@@ -10,9 +10,14 @@
         <div class="w-11/12 lg:w-11/12 flex pt-5 pb-32">
             <div class="w-11/12 lg:w-full dark:text-white">
                 <section class="py-4">
-                    <div class="container">
-                        <div class="w-full self-center px-4 lg:w-1/2">
+                    <div class="container flex justify-between">
+                        <div class=" self-center px-4">
                             <h1 class="text-base font-semibold text-primary md:text-xl">Selamat Datang, <span class="block font-bold text-dark dark:text-white text-4xl lg:text-5xl">{{ auth()->user()->name }}</span></h1>
+                            <h1 class="text-base font-semibold text-primary md:text-l">{{ date('d-M-Y') }}</h1>
+                        </div>
+                        <div class=" self-center px-4 hidden sm:block">
+                            <h1 class="text-base font-semibold text-primary md:text-l">Kerja Praktik <span class="block font-bold text-dark dark:text-white text-4xl lg:text-2xl">Teknik Elektro</span></h1>
+                            <h1 class="text-base font-semibold text-primary md:text-sm">ITERA</h1>
                         </div>
                     </div>
                     <hr>
